@@ -1,16 +1,35 @@
 {% extends 'base.html'%}
-    {% block styles%}
-        {{ super() }}
-            <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
-    {% endblock%}
+{% block styles%}
+{{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+{% endblock%}
     
     {% block content %}
+    <div class="container">
+            <div class="row">
+
+    <div class="jumbotron jumbotron-fluid" style="width: 100%; background: url('static/img/bg4.jpg') no-repeat center center; height: 400px;">
+            <div class="container">
+              <h1 class="display-4" style="text-align: center; font-family: 'Abel', sans-serif; color: #669; margin-top: 50px">News Highlight</h1>
+              <p class="lead" style="text-align:center;font-family: 'Abel', sans-serif; color: #000;margin-top: 80px;">Get access to News articles from all over the world</p>
+            </div>
+          </div>
+        </div>
+
     <hr>
     <br>
-    <div class="container" style="margin:auto;">
-        <div class="row">
-    <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+    <h2 style="text-align: center;">Categories</h2>
+    <br>
+    <hr>
+    <br>
+    
+            <div class="container">
+            <div class="row">
+    
+            <div class="card" style="width: 18rem; margin: 0 auto;">
+            <img src="{{ url_for('static', filename='img/business.jpg') }}" class="card-img-top, img-responsive" alt="...">
             <div class="card-body">
               <h5 class="card-title">Business News</h5>
               <p class="card-text">A collection of articles from the world of business</p>
@@ -18,17 +37,17 @@
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+          <div class="card" style="width: 18rem; margin: 0 auto;">
+                <img src="{{ url_for('static', filename='img/sport2.jpg') }}" class="card-img-top, img-responsive" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Sports News</h5>
                   <p class="card-text"> A collection of articles from the world of sports </p>
-                  <a href="sports" class="btn btn-primary">View Articles</a>
+                  <a href="/sports" class="btn btn-primary">View Articles</a>
                 </div>
               </div>
 
-              <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+              <div class="card" style="width: 18rem;margin: 0 auto;">
+                    <img src="{{ url_for('static', filename='img/tech.jpg') }}" class="card-img-top, img-responsive" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Technology News</h5>
                       <p class="card-text">News Articles From the Tech World</p>
@@ -36,8 +55,8 @@
                     </div>
                   </div>
 
-                  <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                  <div class="card" style="width: 18rem; margin: 0 auto;">
+                        <img src="{{ url_for('static', filename='img/entertainment.jpg') }}" class="card-img-top, img-responsive" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Entertainment News</h5>
                           <p class="card-text">Catch up with the Entertainment World</p>
@@ -48,14 +67,18 @@
                     </div>
                     <br>
                     <hr>
-                    <h2 style="font-family:verdana; text-align: center;";>Trending News</h2>
+                    <br>
+                    <h2 style="font-family:verdana; text-align: center;";>Trending News World Wide</h2>
+                    <br>
                     <hr>
-        {% for item in article %}
-            <div class="container">
-                <div class="row">
-                        <!-- <div class="col-sm-4"> -->
-                        <div class="card" style="width: 50%; margin: auto;">
-                        <img src="{{item.urlToImage}}" class="card-img-top" alt="{{item.title}}">
+        
+                    <div class="container">
+                    <div class="row">
+                    {% for item in article %}
+  
+                        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3  article-card">
+                        <div class="card" style="width: 24rem; margin: 0 auto;">
+                        <img src="{{item.urlToImage}}" class="card-img-top, img-responsive" alt="{{item.title}}">
                         <div class="card-body">
                         <h5 class="card-title"> {{item.source.name}} </h5>
                         <p class="card-text">{{item.title}} </p>
@@ -65,7 +88,10 @@
                     </div>
                 </div>
             </div>
-            </div>
-            </div>
+            
+            
         {% endfor %}
+    </div>
+</div>
+</div>
     {%endblock%}

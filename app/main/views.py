@@ -15,15 +15,15 @@ def index():
 
 
 
-@main.route('/general')
-def general():
-	'''
-	View root page function that returns the index page and its data
-	'''
+# @main.route('/general')
+# def general():
+# 	'''
+# 	View root page function that returns the index page and its data
+# 	'''
 
-	general = get_news('general')
-	title = 'general-news Page - Get The latest News Online'
-	return render_template('general.html',title = title,general=genera)
+# 	general = get_news('general')
+# 	title = 'general-news Page - Get The latest News Online'
+# 	return render_template('general.html',title = title,general=genera)
 
 @main.route('/sports')
 def sport():
@@ -31,9 +31,9 @@ def sport():
 	View root page function that returns the index page and its data
 	'''
 
-	sports = get_news('sports')
+	sport = get_article('sports')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('sports.html',title = title,sports=sports)
+	return render_template('sports.html',title = title,article=sport)
 
 @main.route('/technology')
 def tech():
@@ -41,9 +41,9 @@ def tech():
 	View root page function that returns the index page and its data
 	'''
 
-	general_news = get_news('technology')
+	technology = get_article('technology')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('technology.html',title = title,technology=general_news)
+	return render_template('technology.html',title = title,article=technology)
 
 @main.route('/business')
 def business():
@@ -51,9 +51,9 @@ def business():
 	View root page function that returns the index page and its data
 	'''
 
-	general_news = get_news('business')
+	business = get_article('business')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('businessNews.html',title = title,businessNews=general_news)
+	return render_template('business.html',title = title,article=business)
 
 @main.route('/entertainment')
 def entertainment():
@@ -61,6 +61,6 @@ def entertainment():
 	View root page function that returns the index page and its data
 	'''
 	# Getting popular news
-	general_news = get_news('entertainment')
+	entertainment = get_article('entertainment')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('entertainmentNews.html',title = title,entertainment=general_news)
+	return render_template('entertainment.html',title = title,article=entertainment)
