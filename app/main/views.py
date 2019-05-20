@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_news,get_article
+from ..requests import get_news,get_article,search_news
 from ..models import Article,News
 
 @main.route('/')
@@ -10,8 +10,11 @@ def index():
     '''
     news = get_article('business')
     title = 'Welcome to The news highlight'
-       
-    return render_template('index.html',title = title, article=news)
+    search_news = request.args.get('query')
+    if search_news:
+        return redirect(url_for('.search', query=search_news))
+    else:
+        return render_template('index.html',title = title, article=news)
 
 
 
@@ -64,3 +67,14 @@ def entertainment():
 	entertainment = get_article('entertainment')
 	title = 'general-news Page - Get The latest News Online'
 	return render_template('entertainment.html',title = title,article=entertainment)
+
+@main.route('/search/<query>')
+def search(query):
+    '''
+    view function to display search results
+    '''
+    article_list = query.split(" ")
+    query_format = "+".join(article_list)
+    searched_articles = search_news(query_format)
+    title = f'search results for {query}'
+    return render_template('search.html', article= searched_articles)
