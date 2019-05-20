@@ -1,0 +1,32 @@
+<!-- {% macro displayArticles(article_list) %}
+
+    {% for news in news_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2  article-card">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ article.image }}" alt="{{ article.title }}" class="card-img-top" >
+                <div class="card-body">
+                    <a href="/article/{{article.url}}">
+                  <h5 class="card-title"> {{article.title}} </h5></a>
+                  <p class="card-text"> </p>
+                  <a href="#" class="btn btn-primary">{{ article.description | truncate(10)}}</a>
+                </div>
+        </div>
+        </div>
+        {% endfor %}
+        {% endmacro %} -->
+
+
+{% macro displayNewsList(news_list) %}
+
+    {% for news in news_list %}
+        <div class="container-fluid">
+          <p><a href="{{news.url}}" target="_blank">
+              <h1>{{ news.name}}</h1>
+            </a></p>
+          <p>{{news.description}}</p>
+        
+        </div>
+    {% endfor %}
+        
+{% endmacro %}
+        
