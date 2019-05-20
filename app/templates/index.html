@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+<html lang="en">
+
+        {% block content %}
+        <div class="back">
+            <div class="container-fluid">
+                <br>
+                <hr>
+                <h2 style="font-family:verdana";>Trending News</h2>
+                <hr>
+                <br>
+                {% block styles%}
+                    {{ super() }}
+                    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+                {% endblock%}
+<body>
+    {% for item in article %}
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img src="{{item.urlToImage}}" class="card-img-top" alt="{{}item.title}">
+            <div class="card-body">
+              <h5 class="card-title"> {{item.source.name}} </h5>
+              <p class="card-text">{{item.title}} </p>
+              <p class="card-text">Published At {{item.publishedAt}} by {{item.author}}</p>
+              <p class="card-text"> ~v{{item.description}} </p>
+              <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-primary">View Article</button></a></p>
+            </div>
+          </div>
+         
+          
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
