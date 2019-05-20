@@ -1,17 +1,60 @@
 {% extends 'base.html'%}
     {% block styles%}
         {{ super() }}
-            <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+            <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
     {% endblock%}
     
     {% block content %}
     <hr>
-    <h2 style="font-family:verdana";>Trending News</h2>
-    <hr>
+    <br>
+    <div class="container" style="margin:auto;">
+        <div class="row">
+    <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Business News</h5>
+              <p class="card-text">A collection of articles from the world of business</p>
+              <a href="/business" class="btn btn-primary">View Articles</a>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sports News</h5>
+                  <p class="card-text"> A collection of articles from the world of sports </p>
+                  <a href="sports" class="btn btn-primary">View Articles</a>
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Technology News</h5>
+                      <p class="card-text">News Articles From the Tech World</p>
+                      <a href="/technology" class="btn btn-primary">View Articles</a>
+                    </div>
+                  </div>
+
+                  <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Entertainment News</h5>
+                          <p class="card-text">Catch up with the Entertainment World</p>
+                          <a href="entertainment" class="btn btn-primary">View Articles</a>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <h2 style="font-family:verdana; text-align: center;";>Trending News</h2>
+                    <hr>
         {% for item in article %}
             <div class="container">
                 <div class="row">
-                    <div class="card" style="width: 18rem;">
+                        <!-- <div class="col-sm-4"> -->
+                        <div class="card" style="width: 50%; margin: auto;">
                         <img src="{{item.urlToImage}}" class="card-img-top" alt="{{item.title}}">
                         <div class="card-body">
                         <h5 class="card-title"> {{item.source.name}} </h5>
@@ -21,6 +64,7 @@
                         <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-primary">View Article</button></a></p>
                     </div>
                 </div>
+            </div>
             </div>
             </div>
         {% endfor %}

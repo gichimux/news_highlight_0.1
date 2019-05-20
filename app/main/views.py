@@ -21,9 +21,9 @@ def general():
 	View root page function that returns the index page and its data
 	'''
 
-	general_news = get_news('general')
+	general = get_news('general')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('general.html',title = title,general=general_news)
+	return render_template('general.html',title = title,general=genera)
 
 @main.route('/sports')
 def sport():
@@ -31,9 +31,9 @@ def sport():
 	View root page function that returns the index page and its data
 	'''
 
-	general_news = get_news('sports')
+	sports = get_news('sports')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('sports.html',title = title,sports=general_news)
+	return render_template('sports.html',title = title,sports=sports)
 
 @main.route('/technology')
 def tech():
@@ -45,7 +45,7 @@ def tech():
 	title = 'general-news Page - Get The latest News Online'
 	return render_template('technology.html',title = title,technology=general_news)
 
-@main.route('/businessNews')
+@main.route('/business')
 def business():
 	'''
 	View root page function that returns the index page and its data
@@ -55,7 +55,7 @@ def business():
 	title = 'general-news Page - Get The latest News Online'
 	return render_template('businessNews.html',title = title,businessNews=general_news)
 
-@main.route('/entertainmentNews')
+@main.route('/entertainment')
 def entertainment():
 	'''
 	View root page function that returns the index page and its data
