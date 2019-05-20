@@ -1,4 +1,4 @@
-# NEWS HIGHLIGHT
+# APLICATION NAME: News Highlight
 
 This is a web application built on the flask python framework. The application consumes the news API enabling the user to view news articles from various sources
 
@@ -11,7 +11,7 @@ python3.6 is installed in your operating system.
 * clone this [repository](https://github.com/gichimux/password-locker)
 * ```$pip install -r requirements.txt```
 * create a shell file ```start.sh``` file in your root folder and add your api key, secret key and the command ```python3.6 manage.py server```
-* at the root folder, run ```./start.sh```
+* at the root folder, run ```$./start.sh```
 
 
 ### How it works
