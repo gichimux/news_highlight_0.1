@@ -9,7 +9,6 @@ def index():
     view root function that return the index page
     '''
     news = get_article('business')
-    return render_template('article.html', article =article, title = title , nation=nation,standard=standard,eastafrican=eastafrican,cnn=cnn,bbc=bbc)
     title = 'Welcome to The news highlight'
        
     return render_template('index.html',title = title, article=news)
