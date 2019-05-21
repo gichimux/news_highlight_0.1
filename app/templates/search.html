@@ -2,8 +2,15 @@
 
 {% block content %}
 
-<h3 style="text-align: center;"> Found {{ article | count}} articles </h3>
+{% block styles%}
+        {{ super() }}
+            <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    {% endblock%}
 
+<hr>
+<h3 style="text-align: center;"> Found {{ article | count}} articles </h3>
+<hr>
+<br>
 <div class="container">
         <div class="row">
         {% for item in article %}
@@ -13,10 +20,10 @@
             <img src="{{item.urlToImage}}" class="card-img-top, img-responsive" alt="{{item.title}}">
             <div class="card-body">
             <h5 class="card-title"> {{item.source.name}} </h5>
-            <p class="card-text">{{item.title}} </p>
+            <p class="card-text"><b>{{item.title}} </b></p>
             <p class="card-text">Published At {{item.publishedAt}} by {{item.author}}</p>
-            <p class="card-text"> ~{{item.description}} </p>
-            <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-primary">View Article</button></a></p>
+            <p class="card-text"> ~ {{item.description}} </p>
+            <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-success">View Article</button></a></p>
         </div>
     </div>
 </div>

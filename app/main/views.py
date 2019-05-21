@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_news,get_article,search_news
+from ..requests import get_news,get_article,search_news,source_news
 from ..models import Article,News
 
 @main.route('/')
@@ -11,6 +11,12 @@ def index():
     news = get_article('business')
     title = 'Welcome to The news highlight'
     search_news = request.args.get('query')
+    
+    # bbc = source_news('bbc.com')
+    # nation = source_news('nation.co.ke')
+    # cnn = source_news('cnn.com')
+    # standard = source_news('standardmedia.co.ke')
+
     if search_news:
         return redirect(url_for('.search', query=search_news))
     else:
@@ -78,3 +84,69 @@ def search(query):
     searched_articles = search_news(query_format)
     title = f'search results for {query}'
     return render_template('search.html', article= searched_articles)
+
+
+@main.route('/nation')
+def nation():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	nation = source_news('nation.co.ke')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=nation)
+
+@main.route('/standard')
+def standard():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	standard = source_news('standardmedia.co.ke')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=standard)
+
+@main.route('/cnn')
+def cnn():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	cnn = source_news('cnn.com')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=cnn)
+
+
+@main.route('/bbc')
+def bbc():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	bbc = source_news('bbc.com')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=bbc)
+
+@main.route('/theeast')
+def east():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	ea = source_news('theeastafrican.co.ke')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=ea)
+
+@main.route('/aljazeera')
+def aljazeera():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	aljazeera = source_news('aljazeera.com')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=aljazeera, name=name)
+
+
+@main.route('/forbes')
+def forbes():
+	'''
+	View root page function that returns the index page and its data
+	'''
+	forbes = source_news('forbes.com')
+	title = 'general-news Page - Get The latest News Online'
+	return render_template('articles.html',title = title,article=forbes)

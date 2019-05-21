@@ -12,7 +12,7 @@
 
 
     <hr>
-      <h4 style="text-align: center;font-family: 'Concert One', cursive; font-size: 25px">THE WORLD OF BUSINESS</h4>
+      <h4 style="text-align: center;font-family: 'Concert One', cursive; font-size: 25px">News articles</h4>
     <hr>
     <br>
     <div class="container">
@@ -23,7 +23,6 @@
         <div class="card" style="width: 24rem; margin: 0 auto;">
         <img src="{{item.urlToImage}}" class="card-img-top, img-responsive" alt="{{item.title}}">
         <div class="card-body">
-        <h5 class="card-title"> {{item.source.name}} </h5>
         <p class="card-text"><b>{{item.title}} </b></p>
         <p class="card-text">Published At {{item.publishedAt}} by {{item.author}}</p>
         <p class="card-text"> ~{{item.description}} </p>
@@ -39,4 +38,8 @@
     </div>
   </div>
 </div>
+{% block footer %}
+{{super()}}
+{% endblock %}
+
 {% endblock%}

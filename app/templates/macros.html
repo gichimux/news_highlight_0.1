@@ -1,31 +1,24 @@
-{% macro displayNewsList(news_list) %}
+{% macro displayNews(article) %}
 
-    {% for news in news_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2  article-card">
-            <div class="card" style="width: 100%;">
-                <div class="card-body">
-                    <a href="{{news.url}}">
-                  <h5 class="card-title"> {{news.name}} </h5></a>
-                  <p class="card-text"> {{ news.description | truncate(10)}}</p>
-                  <a href="{{news.url}}" class="btn btn-primary">View Article</a>
-                </div>
-        </div>
-        </div>
-        {% endfor %}
-        {% endmacro %}
+    
+    {% for item in article %}
 
-<!-- 
-{% macro displayNewsList(news_list) %}
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3  article-card">
+    <div class="card" style="width: 24rem; margin: 0 auto;">
+    <img src="{{item.urlToImage}}" class="card-img-top, img-responsive" alt="{{item.title}}">
+    <div class="card-body">
+    <h5 class="card-title"> {{item.source.name}} </h5>
+    <p class="card-text">{{item.title}} </p>
+    <p class="card-text">Published At {{item.publishedAt}} by {{item.author}}</p>
+    <p class="card-text"> ~{{item.description}} </p>
+    <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-primary">View Article</button></a></p>
+    </div>
+    </div>
+    </div>
 
-    {% for news in news_list %}
-        <div class="container-fluid">
-          <p><a href="{{news.url}}" target="_blank">
-              <h1>{{ news.name}}</h1>
-            </a></p>
-          <p>{{news.description}}</p>
-        
-        </div>
+
     {% endfor %}
-        
-{% endmacro %} -->
+{% endmacro %}
+
+
         
