@@ -11,28 +11,12 @@ def index():
     news = get_article('business')
     title = 'Welcome to The news highlight'
     search_news = request.args.get('query')
-    
-    # bbc = source_news('bbc.com')
-    # nation = source_news('nation.co.ke')
-    # cnn = source_news('cnn.com')
-    # standard = source_news('standardmedia.co.ke')
 
     if search_news:
         return redirect(url_for('.search', query=search_news))
     else:
         return render_template('index.html',title = title, article=news)
 
-
-
-# @main.route('/general')
-# def general():
-# 	'''
-# 	View root page function that returns the index page and its data
-# 	'''
-
-# 	general = get_news('general')
-# 	title = 'general-news Page - Get The latest News Online'
-# 	return render_template('general.html',title = title,general=genera)
 
 @main.route('/sports')
 def sport():
@@ -139,7 +123,7 @@ def aljazeera():
 	'''
 	aljazeera = source_news('aljazeera.com')
 	title = 'general-news Page - Get The latest News Online'
-	return render_template('articles.html',title = title,article=aljazeera, name=name)
+	return render_template('articles.html',title = title,article=aljazeera)
 
 
 @main.route('/forbes')
