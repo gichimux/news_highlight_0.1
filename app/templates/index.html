@@ -1,71 +1,153 @@
 {% extends 'base.html'%}
-    {% block styles%}
-        {{ super() }}
-            <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
-    {% endblock%}
+{% block styles%}
+{{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One&display=swap" rel="stylesheet">
+{% endblock%}
     
     {% block content %}
-    <hr>
+    <div class="container">
+            <div class="row">
+                    <br>
+                    <hr>
+
+                    <br>
+
+                    <div class="container">
+                        <br>
+                        <hr>
+                            <h3 style="text-align: center;font-family: 'Concert One', cursive; font-size: 25px;
+                            ">Local News</h3><br>
+                        <hr>
+                        <div class="row">
+                            <div class="card" style="width: 22rem; margin: 0 auto;">
+                            <img src="{{ url_for('static', filename='img/nation.jpg') }}" class="card-img-top, img-responsive" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title"><b>Nation Media Group</b></h5>
+                              <a href="/nation" class="btn btn-success">View Articles</a>
+                            </div>
+                          </div>
+                
+                          <div class="card" style="width: 22rem; margin: 0 auto;">
+                                <img src="{{ url_for('static', filename='img/standard.png') }}" class="card-img-top, img-responsive" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Standard Media</b></h5>
+                                  <a href="/standard" class="btn btn-success">View Articles</a>
+                                </div>
+                              </div>
+                
+                              <div class="card" style="width: 22rem; margin: 0 auto;">
+                                    <img src="{{ url_for('static', filename='img/ea.png') }}" class="card-img-top, img-responsive" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title"><b>The Eastafrican</b></h5>
+                                      <a href="/theeast" class="btn btn-success">View Articles</a>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>  
+                                   
+                            <div class="container">
+                                <br>
+                                <hr>
+                                    <h3 style="text-align: center;font-family: 'Concert One', cursive; font-size: 25px;
+                                    ">International News</h3><br>
+                                <br>
+                                <hr>
+                                       <div class="row">
+                                  <div class="card" style="width: 22rem; margin: 0 auto;">
+                                        <img src="{{ url_for('static', filename='img/cnn.png') }}" class="card-img-top, img-responsive" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><b>CNN</b></h5>
+                                          <a href="/cnn" class="btn btn-success">View Articles</a>
+                                        </div>
+                                      </div>
+                
+                                      <div class="card" style="width: 22rem; margin: 0 auto;">
+                                            <img src="{{ url_for('static', filename='img/bbc.jpg') }}" class="card-img-top, img-responsive" alt="...">
+                                            <div class="card-body">
+                                              <h5 class="card-title"><b>BBC</b></h5>
+                                              <a href="/bbc" class="btn btn-success">View Articles</a>
+                                            </div>
+                                          </div>
+                
+                                    <div class="card" style="width: 22rem; margin: 0 auto;">
+                                        <img src="{{ url_for('static', filename='img/aljazeera.png') }}" class="card-img-top, img-responsive" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Aljazeera</b></h5>
+                                                  <a href="/aljazeera" class="btn btn-success">View Articles</a>
+                                                </div>
+                                              </div>
+
+                                        <div class="card" style="width: 22rem; margin: 0 auto;">
+                                        <img src="{{ url_for('static', filename='img/forbes.jpg') }}" class="card-img-top, img-responsive" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Forbes</b></h5>
+                                                  <a href="/forbes" class="btn btn-success">View Articles</a>
+                                                </div>
+                                              </div>
+                          </div>
+                          </div>
+                          
+
     <br>
-    <div class="container" style="margin:auto;">
-        <div class="row">
-    <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+      
+            <div class="container">
+                    <hr>
+                    <br>
+                    <h3 style="text-align: center;font-family: 'Concert One', cursive; font-size: 25px;
+                    ">News Categories</h3>
+                    <br>
+                    <hr>
+            <div class="row">
+    
+            <div class="card" style="width: 18rem; margin: 0 auto;">
+            <img src="{{ url_for('static', filename='img/business.jpg') }}" class="card-img-top, img-responsive" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Business News</h5>
+              <h5 class="card-title"><b>Business News</b></h5>
               <p class="card-text">A collection of articles from the world of business</p>
-              <a href="/business" class="btn btn-primary">View Articles</a>
+              <a href="/business" class="btn btn-outline-success">View Articles</a>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+          <div class="card" style="width: 18rem; margin: 0 auto;">
+                <img src="{{ url_for('static', filename='img/sport2.jpg') }}" class="card-img-top, img-responsive" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Sports News</h5>
+                  <h5 class="card-title"><b>Sports News</b></h5>
                   <p class="card-text"> A collection of articles from the world of sports </p>
-                  <a href="sports" class="btn btn-primary">View Articles</a>
+                  <a href="/sports" class="btn btn-outline-success">View Articles</a>
                 </div>
               </div>
 
-              <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+              <div class="card" style="width: 18rem;margin: 0 auto;">
+                    <img src="{{ url_for('static', filename='img/tech.jpg') }}" class="card-img-top, img-responsive" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Technology News</h5>
+                      <h5 class="card-title"><b>Technology News</b></h5>
                       <p class="card-text">News Articles From the Tech World</p>
-                      <a href="/technology" class="btn btn-primary">View Articles</a>
+                      <a href="/technology" class="btn btn-outline-success">View Articles</a>
                     </div>
                   </div>
 
-                  <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                  <div class="card" style="width: 18rem; margin: 0 auto;">
+                        <img src="{{ url_for('static', filename='img/entertainment.jpg') }}" class="card-img-top, img-responsive" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title">Entertainment News</h5>
+                          <h5 class="card-title"><b>Entertainment News</b></h5>
                           <p class="card-text">Catch up with the Entertainment World</p>
-                          <a href="entertainment" class="btn btn-primary">View Articles</a>
+                          <a href="entertainment" class="btn btn-outline-success">View Articles</a>
                         </div>
                       </div>
                       </div>
                     </div>
                     <br>
                     <hr>
-                    <h2 style="font-family:verdana; text-align: center;";>Trending News</h2>
-                    <hr>
-        {% for item in article %}
-            <div class="container">
-                <div class="row">
-                        <!-- <div class="col-sm-4"> -->
-                        <div class="card" style="width: 50%; margin: auto;">
-                        <img src="{{item.urlToImage}}" class="card-img-top" alt="{{item.title}}">
-                        <div class="card-body">
-                        <h5 class="card-title"> {{item.source.name}} </h5>
-                        <p class="card-text">{{item.title}} </p>
-                        <p class="card-text">Published At {{item.publishedAt}} by {{item.author}}</p>
-                        <p class="card-text"> ~{{item.description}} </p>
-                        <p><a href="{{item.url}}" target="_blank"><button type="button" class="btn btn-primary">View Article</button></a></p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-        {% endfor %}
+                    <br>
+                    <br>
+                   
+    
+          </div>
+</div>
+<br><br>
+    {% block footer %}
+    {{super()}}
+    {% endblock %}
     {%endblock%}
