@@ -19,8 +19,7 @@ class ProdConfig(Config):
     '''
     Production configurtions that inherits from Config parent 
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")#for heroku purposes
-
+    pass
     
 
 config_options ={
